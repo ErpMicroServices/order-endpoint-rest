@@ -9,13 +9,13 @@ import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 @Entity
-public class OrderItemRoletype extends AbstractPersistable<UUID> {
+public class OrderItemRoleType extends AbstractPersistable<UUID> {
  @NotBlank
  @NotNull
  private String description;
 
  @ManyToOne
- private OrderItemRoletype parent;
+ private OrderItemRoleType parent;
 
  public String getDescription() {
 	return description;
@@ -25,11 +25,11 @@ public class OrderItemRoletype extends AbstractPersistable<UUID> {
 	this.description = description;
  }
 
- public OrderItemRoletype getParent() {
+ public OrderItemRoleType getParent() {
 	return parent;
  }
 
- public void setParent(OrderItemRoletype parent) {
+ public void setParent(OrderItemRoleType parent) {
 	this.parent = parent;
  }
 }
