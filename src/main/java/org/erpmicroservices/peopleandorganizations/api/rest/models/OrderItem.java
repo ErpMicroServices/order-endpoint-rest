@@ -50,6 +50,42 @@ public class OrderItem extends AbstractPersistable<UUID> {
 
  private UUID partyRoleId;
 
+ @OneToMany
+ @JoinColumn(name = "affecting_order_item_id")
+ private List<OrderAdjustment> adjustments = new ArrayList<>();
+
+ @OneToMany
+ @JoinColumn(name = "condition_for_order_item_id")
+ private List<OrderTerm> terms = new ArrayList<>();
+
+ @OneToMany
+ @JoinColumn(name = "status_for_order_item_id")
+ private List<OrderStatus> statuses = new ArrayList<>();
+
+ public List<OrderAdjustment> getAdjustments() {
+	return adjustments;
+ }
+
+ public void setAdjustments(List<OrderAdjustment> adjustments) {
+	this.adjustments = adjustments;
+ }
+
+ public List<OrderTerm> getTerms() {
+	return terms;
+ }
+
+ public void setTerms(List<OrderTerm> terms) {
+	this.terms = terms;
+ }
+
+ public List<OrderStatus> getStatuses() {
+	return statuses;
+ }
+
+ public void setStatuses(List<OrderStatus> statuses) {
+	this.statuses = statuses;
+ }
+
  public QuoteItem getQuoteItem() {
 	return quoteItem;
  }
