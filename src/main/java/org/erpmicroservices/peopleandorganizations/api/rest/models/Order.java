@@ -29,9 +29,57 @@ public class Order extends AbstractPersistable<UUID> {
  @JsonFormat(pattern = "yyyy-MM-dd")
  private LocalDate entryDate;
 
- @OneToMany
+ @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
  @JoinColumn(name = "order_id")
  private List<OrderItem> items = new ArrayList<>();
+
+ private UUID placedUsingContactMechanismId;
+
+ private UUID takenViaContactMechanismId;
+
+ private UUID billingLocationContactMechanismId;
+
+ @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+ @JoinColumn(name = "order_id")
+ private List<OrderRole> roles = new ArrayList<>();
+
+ private UUID placedByPartyRoleId;
+
+ private UUID takenByPartyRoleId;
+
+ private UUID withRequestedBillToPartyRoleId;
+
+ public OrderType getType() {
+  return type;
+ }
+
+ public void setType(OrderType type) {
+  this.type = type;
+ }
+
+ public UUID getPlacedUsingContactMechanismId() {
+  return placedUsingContactMechanismId;
+ }
+
+ public void setPlacedUsingContactMechanismId(UUID placedUsingContactMechanismId) {
+  this.placedUsingContactMechanismId = placedUsingContactMechanismId;
+ }
+
+ public UUID getTakenViaContactMechanismId() {
+  return takenViaContactMechanismId;
+ }
+
+ public void setTakenViaContactMechanismId(UUID takenViaContactMechanismId) {
+  this.takenViaContactMechanismId = takenViaContactMechanismId;
+ }
+
+ public UUID getBillingLocationContactMechanismId() {
+  return billingLocationContactMechanismId;
+ }
+
+ public void setBillingLocationContactMechanismId(UUID billingLocationContactMechanismId) {
+  this.billingLocationContactMechanismId = billingLocationContactMechanismId;
+ }
 
  public String getOrderIdentifier() {
   return orderIdentifier;

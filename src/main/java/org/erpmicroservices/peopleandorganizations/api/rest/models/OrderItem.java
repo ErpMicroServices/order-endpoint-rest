@@ -35,7 +35,7 @@ public class OrderItem extends AbstractPersistable<UUID> {
 
  private UUID correspondingPoId;
 
- @OneToMany
+ @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
  @JoinColumn(name = "ordered_with_id")
  private List<OrderItem> orderedWith = new ArrayList<>();
 
@@ -45,6 +45,34 @@ public class OrderItem extends AbstractPersistable<UUID> {
 
  @ManyToOne
  private QuoteItem quoteItem;
+
+ private UUID contactMechanismId;
+
+ private UUID partyRoleId;
+
+ public QuoteItem getQuoteItem() {
+	return quoteItem;
+ }
+
+ public void setQuoteItem(QuoteItem quoteItem) {
+	this.quoteItem = quoteItem;
+ }
+
+ public UUID getContactMechanismId() {
+	return contactMechanismId;
+ }
+
+ public void setContactMechanismId(UUID contactMechanismId) {
+	this.contactMechanismId = contactMechanismId;
+ }
+
+ public UUID getPartyRoleId() {
+	return partyRoleId;
+ }
+
+ public void setPartyRoleId(UUID partyRoleId) {
+	this.partyRoleId = partyRoleId;
+ }
 
  public OrderItemType getType() {
 	return type;
