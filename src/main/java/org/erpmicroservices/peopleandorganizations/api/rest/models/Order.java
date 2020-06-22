@@ -49,6 +49,50 @@ public class Order extends AbstractPersistable<UUID> {
 
  private UUID withRequestedBillToPartyRoleId;
 
+ @OneToMany
+ @JoinColumn(name = "affecting_order_id")
+ private List<OrderAdjustment> adjustments = new ArrayList<>();
+
+ public List<OrderRole> getRoles() {
+  return roles;
+ }
+
+ public void setRoles(List<OrderRole> roles) {
+  this.roles = roles;
+ }
+
+ public UUID getPlacedByPartyRoleId() {
+  return placedByPartyRoleId;
+ }
+
+ public void setPlacedByPartyRoleId(UUID placedByPartyRoleId) {
+  this.placedByPartyRoleId = placedByPartyRoleId;
+ }
+
+ public UUID getTakenByPartyRoleId() {
+  return takenByPartyRoleId;
+ }
+
+ public void setTakenByPartyRoleId(UUID takenByPartyRoleId) {
+  this.takenByPartyRoleId = takenByPartyRoleId;
+ }
+
+ public UUID getWithRequestedBillToPartyRoleId() {
+  return withRequestedBillToPartyRoleId;
+ }
+
+ public void setWithRequestedBillToPartyRoleId(UUID withRequestedBillToPartyRoleId) {
+  this.withRequestedBillToPartyRoleId = withRequestedBillToPartyRoleId;
+ }
+
+ public List<OrderAdjustment> getAdjustments() {
+  return adjustments;
+ }
+
+ public void setAdjustments(List<OrderAdjustment> adjustments) {
+  this.adjustments = adjustments;
+ }
+
  public OrderType getType() {
   return type;
  }
