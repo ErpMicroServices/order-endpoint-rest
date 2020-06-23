@@ -62,6 +62,18 @@ public class OrderItem extends AbstractPersistable<UUID> {
  @JoinColumn(name = "status_for_order_item_id")
  private List<OrderStatus> statuses = new ArrayList<>();
 
+ @OneToMany
+ @JoinColumn(name = "order_item_id")
+ private List<OrderRequirementCommitment> requirementCommitments = new ArrayList<>();
+
+ public List<OrderRequirementCommitment> getRequirementCommitments() {
+	return requirementCommitments;
+ }
+
+ public void setRequirementCommitments(List<OrderRequirementCommitment> requirementCommitments) {
+	this.requirementCommitments = requirementCommitments;
+ }
+
  public List<OrderAdjustment> getAdjustments() {
 	return adjustments;
  }
