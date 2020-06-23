@@ -1,6 +1,8 @@
 package org.erpmicroservices.peopleandorganizations.api.rest.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.jpa.domain.AbstractPersistable;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -14,8 +16,14 @@ public class Requirement extends AbstractPersistable<UUID> {
 
  private String description;
 
+ @Column(name = "requirement_creation_date", columnDefinition = "DATE")
+ @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+ @JsonFormat(pattern = "yyyy-MM-dd")
  private LocalDate requirementCreationDate;
 
+ @Column(name = "required_by", columnDefinition = "DATE")
+ @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+ @JsonFormat(pattern = "yyyy-MM-dd")
  private LocalDate requiredBy;
 
  private BigDecimal estimatedBudget;
