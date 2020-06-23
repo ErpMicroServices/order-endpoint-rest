@@ -39,6 +39,10 @@ public class AgreementItem extends AbstractPersistable<UUID> {
  @JoinColumn(name = "agreement_item_id")
  private List<AgreementTerm> terms;
 
+ @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
+ @JoinColumn(name = "agreement_item_id")
+ private List<AgreementPriceComponent> pricing;
+
  public Long getSequence() {
 	return sequence;
  }
