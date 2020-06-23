@@ -9,17 +9,17 @@
     </parent>
     <groupId>org.erpmicroservices.order.api.rest</groupId>
     <artifactId>order-api-rest</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Order Service Restful Endpoint</name>
     <description>A restful HATEOAS based API for handling data about orders.</description>
 
     <scm>
-        <connection>scm:git:ssh://git@github.com:ErpMicroServices/order-endpoint-rest.git
+        <connection>scm:git:ssh://git@github.com/ErpMicroServices/order-endpoint-rest.git
         </connection>
-        <developerConnection>scm:git:ssh://git@github.com:ErpMicroServices/order-endpoint-rest.git
+        <developerConnection>scm:git:ssh://git@github.com/ErpMicroServices/order-endpoint-rest.git
         </developerConnection>
-        <url>scm:git:ssh://git@github.com:ErpMicroServices/order-endpoint-rest.git</url>
+        <url>scm:git:ssh://git@github.com/ErpMicroServices/order-endpoint-rest.git</url>
         <tag>order-api-rest-1.0.0</tag>
     </scm>
 
