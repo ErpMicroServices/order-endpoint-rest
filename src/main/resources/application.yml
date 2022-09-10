@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: Order Endpoint REST
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:postgresql://localhost:5432/order_database
+    username: order_database
+    password: order_database
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,info
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.data.repository: INFO
+    org.hibernate: INFO
