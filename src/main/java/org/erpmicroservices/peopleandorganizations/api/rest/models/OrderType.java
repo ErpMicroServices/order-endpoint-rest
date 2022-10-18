@@ -1,5 +1,6 @@
 package org.erpmicroservices.peopleandorganizations.api.rest.models;
 
+import lombok.*;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Entity;
@@ -9,27 +10,17 @@ import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 @Entity
+@Data
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class OrderType extends AbstractPersistable<UUID> {
- @NotBlank
+
+	@NotBlank
  @NotNull
  private String description;
 
  @ManyToOne
  private OrderType parent;
-
- public String getDescription() {
-	return description;
- }
-
- public void setDescription(String description) {
-	this.description = description;
- }
-
- public OrderType getParent() {
-	return parent;
- }
-
- public void setParent(OrderType parent) {
-	this.parent = parent;
- }
 }
