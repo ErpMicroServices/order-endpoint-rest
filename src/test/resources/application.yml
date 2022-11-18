@@ -1,6 +1,17 @@
 spring:
   application:
     name: Order Endpoint REST Test
+  #  jpa:
+  #    database: POSTGRESQL
+  #    show-sql: true
+  #    hibernate:
+  #      ddl-auto: validate
+  #  datasource:
+  #    url: jdbc:postgresql://localhost:5432/orders-database
+  #    username: orders-database
+  #    password: orders-database
+  hateoas:
+    use-hal-as-default-json-media-type: true
   jpa:
     database: H2
     show-sql: true
@@ -10,9 +21,20 @@ spring:
     url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
     username: sa
     password: sa
-
+  h2:
+    console:
+      enabled: true
+      path: /h2
 logging:
   level:
     ROOT: INFO
-    org.springframework.data.repository: DEBUG
+    #    org.springframework.data.repository: DEBUG
+    org:
+      springframework:
+        data:
+          repository: DEBUG
+        boot:
+          test:
+            web:
+              client: DEBUG
     org.hibernate: DEBUG

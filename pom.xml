@@ -60,7 +60,18 @@
 		<dependency >
 			<groupId >org.springframework.boot</groupId >
 			<artifactId >spring-boot-starter-hateoas</artifactId >
+			<exclusions >
+				<exclusion >
+					<groupId >org.springframework.boot</groupId >
+					<artifactId >spring-boot-starter-web</artifactId >
+				</exclusion >
+			</exclusions >
 		</dependency >
+
+		<!--				<dependency>-->
+		<!--					<groupId>org.springframework.hateoas</groupId>-->
+		<!--					<artifactId>spring-hateoas</artifactId>-->
+		<!--				</dependency>-->
 
 		<dependency >
 			<groupId >org.springframework.boot</groupId >
@@ -119,12 +130,6 @@
 		</dependency >
 
 		<dependency >
-			<groupId >org.springframework.boot</groupId >
-			<artifactId >spring-boot-starter-test</artifactId >
-			<scope >test</scope >
-		</dependency >
-
-		<dependency >
 			<groupId >io.cucumber</groupId >
 			<artifactId >cucumber-java</artifactId >
 			<version >7.8.1</version >
@@ -163,6 +168,10 @@
 			<scope >test</scope >
 		</dependency >
 
+		<dependency >
+			<groupId >org.springframework.boot</groupId >
+			<artifactId >spring-boot-starter-webflux</artifactId >
+		</dependency >
 	</dependencies >
 
 	<build >

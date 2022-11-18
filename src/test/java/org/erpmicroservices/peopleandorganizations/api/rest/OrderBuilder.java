@@ -27,7 +27,7 @@ public class OrderBuilder {
 		this.orderRepo = orderRepo;
 		this.orderTypeRepo = orderTypeRepo;
 		orderType = orderTypeRepo.save(OrderType.builder()
-				                               .description("Type")
+				                               .description("This is an order type")
 				                               .build());
 	}
 
@@ -37,7 +37,7 @@ public class OrderBuilder {
 				                      .entryDate(LocalDate.now())
 				                      .orderDate(LocalDate.now())
 				                      .orderIdentifier(UUID.randomUUID().toString())
-				                      .type(orderType)
+//				                      .type(orderType)
 				                      .build());
 	}
 

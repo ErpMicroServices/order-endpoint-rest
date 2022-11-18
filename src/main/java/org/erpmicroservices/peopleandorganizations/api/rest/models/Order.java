@@ -15,6 +15,7 @@ import java.util.UUID;
 @Table(name = "\"order\"")
 @Data
 @EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

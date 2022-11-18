@@ -25,7 +25,8 @@ public class AgreementTerm extends AbstractPersistable<UUID> {
  @JsonFormat(pattern = "yyyy-MM-dd")
  private LocalDate thruDate;
 
- private BigDecimal value;
+	@Column(name = "\"value\"")
+	private BigDecimal value;
 
  @ManyToOne
  @JoinColumn(name = "agreement_term_type_id")
