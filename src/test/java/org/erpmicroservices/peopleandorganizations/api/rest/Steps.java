@@ -10,8 +10,12 @@ import org.erpmicroservices.peopleandorganizations.api.rest.repositories.OrderTy
 import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Steps {
@@ -29,7 +33,10 @@ public class Steps {
 	private OrderRepo orderRepo;
 
 	@Autowired
-	private TestRestTemplate client;
+	private RestTemplateBuilder clientBuilder;
+
+	@LocalServerPort
+	int randomServerPort;
 
 	@Given("{int} orders exist")
 	public void orders_exist(Integer numberOfOrders) {
@@ -40,12 +47,10 @@ public class Steps {
 	public void i_get_a_list() {
 		final List<OrderType> all = orderTypeRepo.findAll();
 		final List<Order> orders = orderRepo.findAll();
-		final ResponseEntity<String> responseEntity = client
-				                                              .getForEntity("/orders", String.class);
-		responseEntity.getBody();
-//		actualOrderList =
-//				            Arrays.asList(client
-//				                  .getForEntity("/orders", Order[].class).getBody());
+		final RestTemplate client = clientBuilder.build();
+		actualOrderList =
+				            Arrays.asList(client
+				                  .getForEntity("http://localhost:" + randomServerPort + "/orders", Order[].class).getBody());
 
 	}
 

@@ -6,6 +6,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ public class Order extends AbstractPersistable<UUID> {
 
  @ManyToOne
  @JoinColumn(name = "order_type_id")
+ @NotNull
  private OrderType type;
 
  private String orderIdentifier;
